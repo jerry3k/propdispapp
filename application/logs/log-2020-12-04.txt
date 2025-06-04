@@ -1,0 +1,6 @@
+ERROR - 2020-12-04 05:18:00 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-12-04 13:05:39 --> 404 Page Not Found: Robotstxt/index
+ERROR - 2020-12-04 18:09:45 --> 404 Page Not Found: Assets/global
+ERROR - 2020-12-04 18:09:45 --> 404 Page Not Found: Assets/global
+ERROR - 2020-12-04 19:34:51 --> 404 Page Not Found: Assets/global
+ERROR - 2020-12-04 19:34:52 --> 404 Page Not Found: Assets/global

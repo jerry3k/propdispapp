@@ -1,0 +1,89 @@
+input[type=radio], input[type=checkbox] {
+	margin: 4px 4px 0;
+}
+
+.row-border {
+	padding: 5px;
+	margin-bottom: 10px;
+	border: 1px solid #28d67d;
+}
+
+.row-box {
+	padding: 10px 30px;
+}
+
+.load_subjob {
+	padding: 15px;
+}
+
+.job-box {
+	padding: 10px;
+	border: 1px solid #32c5d2;
+	display: inline-block;
+	width: 100%;
+}
+
+.pl0p {
+	padding-left: 0px;
+}
+
+.pr0p {
+	padding-right: 0px;
+}
+
+.rfield {
+	color: darkred !important;
+}
+
+.hdate {
+	color: #1665dc;
+	padding-left: 10px;
+	font-weight: bold;
+}
+
+.update_job_status {
+	margin-top: 5px !important;
+	margin-left: 7px !important;
+}
+
+.head_title {
+	background: #2cd05e !important;
+}
+
+tr.jrc {
+	background: #4caf50 !important;
+}
+
+tr.jrc td {
+	color: #fff !important;
+}
+
+tr.jrc a.edit_job {
+	color: #ffeb3bde !important;
+}
+
+.lost-job label.error {
+	all: unset;
+	position: absolute;
+	float: left;
+	margin-left: -20px;
+}
+
+.color-green {
+	color: green !important;
+}
+
+.cal-icon input {
+	height: 25px;
+}
+
+.cal-icon i.fa {
+	top: 7px;
+	right: 10px;
+	font-size: 15px;
+	position: absolute;
+}
+
+.width100p{
+	width: 100% !important;
+}

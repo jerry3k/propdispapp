@@ -1,0 +1,47 @@
+<?php defined( 'BASEPATH' ) OR exit( 'No direct script access allowed' );
+
+class Migration_Add_fitterprice extends CI_Migration {
+
+	var $Table = 'fitterprice';
+
+	public function up() {
+		$this->dbforge->add_field( array(
+			'id'            => array(
+				'type'           => 'INT',
+				'constraint'     => 11,
+				'unsigned'       => true,
+				'auto_increment' => true,
+			),
+			'fitter_id' => array(
+				'type'       => 'VARCHAR',
+				'constraint' => '100',
+				'null'       => true,
+			),
+			'job_id'     => array(
+				'type'       => 'INT',
+				'constraint' => 11,
+				'null'       => true,
+			),
+			'price'     => array(
+				'type' => 'float',
+				'null' => true,
+			),
+			'added_time'    => array(
+				'type' => 'datetime',
+				'null' => true,
+			),
+			'added_ip'      => array(
+				'type'       => 'VARCHAR',
+				'constraint' => '100',
+				'null'       => true,
+			),
+		) );
+
+		$this->dbforge->add_key( 'id', true );
+		$this->dbforge->create_table( $this->Table );
+	}
+
+	public function down() {
+		$this->dbforge->drop_table( $this->Table );
+	}
+}
