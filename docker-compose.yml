@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: propdispapp_web
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+      - ./docker/php.ini:/usr/local/etc/php/conf.d/custom.ini
+    environment:
+      - DBhostname=db
+      - DBusername=dbo763817850
+      - DBpassword=iamtheadmin
+      - DBdatabase=db763817850
+      - DOMAIN_URL=http://localhost
+    depends_on:
+      - db
+    ports:
+      - "8085:80"
+    networks:
+      - app-network
+
+  db:
+    image: mysql:5.7
+    container_name: propdispapp_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: db763817850
+      MYSQL_USER: dbo763817850
+      MYSQL_PASSWORD: iamtheadmin
+      MYSQL_ROOT_PASSWORD: rootpassword
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./db763817850.sql:/docker-entrypoint-initdb.d/db763817850.sql
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  dbdata:
