@@ -12,7 +12,7 @@ services:
       - .:/var/www/html
       - ./docker/php.ini:/usr/local/etc/php/conf.d/custom.ini
     environment:
-      - DBhostname=db
+      - DBhostname=propdispapp_db
       - DBusername=dbo763817850
       - DBpassword=iamtheadmin
       - DBdatabase=db763817850
