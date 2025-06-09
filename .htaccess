@@ -1,6 +1,24 @@
 <IfModule mod_rewrite.c>
 	RewriteEngine On
 	RewriteBase /
+
+
+
+	    # Remove multiple slashes
+    RewriteCond %{REQUEST_URI} ^(.*)//(.*)$
+    RewriteRule . %1/%2 [R=302,L]
+
+    # Redirect /login to root
+    RewriteCond %{THE_REQUEST} ^GET\ /login[/\ ?] [NC]
+    RewriteRule ^.*$ / [R=302,L]
+    
+    # Handle root as login
+    RewriteRule ^$ index.php?/login [L]
+
+    # All requests go through index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
 	# Removes trailing slashes (prevents SEO duplicate content issues)
 
 	#RewriteCond %{REQUEST_FILENAME} !-d
@@ -11,11 +29,11 @@
     #RewriteCond %{SERVER_PORT} 80
     #RewriteRule ^(.*)$ https://login.propertydisplayed.co.uk/$1 [R=301,L]
 
-    RewriteCond %{HTTP_HOST} ^http://login.coinstant.org [OR]
-    RewriteCond %{HTTP_HOST} ^login.coinstant.org [OR]
-    RewriteCond %{HTTP_HOST} ^login.propertydisplayed\.co.uk
-    RewriteCond %{SERVER_PORT} 80
-    RewriteRule ^(.*)$ https://login.propertydisplayed.co.uk/$1 [R=301,L]
+    #RewriteCond %{HTTP_HOST} ^http://login.coinstant.org [OR]
+    #RewriteCond %{HTTP_HOST} ^login.coinstant.org [OR]
+    #RewriteCond %{HTTP_HOST} ^login.propertydisplayed\.co.uk
+    #RewriteCond %{SERVER_PORT} 80
+    #RewriteRule ^(.*)$ https://login.propertydisplayed.co.uk/$1 [R=301,L]
 
 	#Removes access to the system folder by users.
 	#Additionally this will allow you to create a System.php controller,
